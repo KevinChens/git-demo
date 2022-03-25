@@ -15,10 +15,12 @@ func NewHead() *ListNode {
 
 // ShowList 打印链表的值
 func (head *ListNode) ShowList() {
-	cur := head
-	for cur != nil {
-		fmt.Println(cur.Val)
-		cur = cur.Next
+	curr := head
+	//head为虚拟头节点
+	//curr := head.Next
+	for curr != nil {
+		fmt.Println(curr.Val)
+		curr = curr.Next
 	}
 }
 
@@ -31,10 +33,10 @@ func (tail *ListNode) Append(value int) {
 		curr = node
 	}else {
 		//链表不空，尾插法插入节点
-
 		for curr.Next != nil {
 			curr = curr.Next
 		}
+		//找到尾巴插入节点
 		curr.Next = node
 	}
 }
@@ -62,7 +64,7 @@ func reverseList(head *ListNode) *ListNode {
 func reverseList2(head *ListNode) *ListNode {
 	//迭代反转链表
 	//prev-->curr-->next
-	//要保存prev(用于指向)和next(用于curr移动)，将curr的next指向prev，prev和curr同步后移迭代
+	//要保存prev(用于curr指向)和next(用于curr移动)，将curr的next指向prev，prev和curr同步后移迭代
 	curr := head
 	var prev *ListNode
 	for curr != nil {
