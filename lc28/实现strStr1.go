@@ -15,7 +15,7 @@ func StrStr1(haystack, needle string) int {
 	// i不需要到len-1
 	for i = 0; i < len(haystack)-len(needle)+1; i++ {
 		for j = 0; j < len(needle); j++ {
-			//?
+			// 偏移判断字符是否相等
 			if haystack[i+j] != needle[j] {
 				break
 			}
