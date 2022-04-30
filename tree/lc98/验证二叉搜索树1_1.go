@@ -5,7 +5,7 @@ import "math"
 // 非递归的中序遍历
 
  func isValidBST1_1(root *TreeNode) bool {
- 	stack := []*TreeNode{}
+ 	stack := make([]*TreeNode, 0)
  	inorder := math.MinInt64
 
  	for root != nil || len(stack) > 0 {
@@ -18,7 +18,7 @@ import "math"
 		// pop
 		node := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
-
+		// check
 		if node.Val <= inorder {
 			return false
 		}

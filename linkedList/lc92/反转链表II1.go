@@ -18,23 +18,21 @@ func reverseBetween(head *ListNode, left, right int) *ListNode {
 	// 使用dummy node
 	dummy := &ListNode{-1, head}
 	prev := dummy
-	// 遍历到m处，并记录prev
+	// 遍历到left处，并记录prev
 	for i := 0; i < left-1; i++ {
 		prev = prev.Next
 	}
 	curr := prev.Next
 
-	var j = left
 	var temp *ListNode
 	var mid = curr
-	for curr != nil && j <= right {
+	for j := left; curr != nil && j <= right; j++ {
 		next := curr.Next
 		// 反转
 		curr.Next = temp
 		// 后移
 		temp = curr
 		curr = next
-		j++
 	}
 	// 拼接
 	prev.Next = temp
